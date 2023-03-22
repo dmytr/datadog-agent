@@ -755,6 +755,10 @@ func TestOTLPHelpers(t *testing.T) {
 				meta: map[string]string{semconv.AttributeRPCMethod: "M"},
 				out:  "M",
 			},
+			{
+				meta: map[string]string{"db.statement": "SELECT 1"},
+				out:  "SELECT 1",
+			},
 		} {
 			assert.Equal(t, tt.out, resourceFromTags(tt.meta))
 		}

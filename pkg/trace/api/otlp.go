@@ -604,6 +604,8 @@ func resourceFromTags(meta map[string]string) string {
 			return m + " " + svc
 		}
 		return m
+	} else if m := meta[string(semconv.AttributeDBStatement)]; m != "" {
+		return m
 	}
 	return ""
 }
